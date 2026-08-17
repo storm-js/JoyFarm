@@ -1,14 +1,16 @@
 // 树莓品种图片
 // hero/farm 是 AI 生成并下载到本地 public/images/ 的大图（不参与防盗链）
 // 4个品种果实图直接引用 AI 图片生成API的CDN链接，浏览器直接访问正常
-// 如果以后想换成自己的照片，把对应URL改成 '/images/xxx.jpg' 然后把照片放进 public/images/ 即可
+// 如果以后想换成自己的照片，把对应URL改成 'images/xxx.jpg' 然后把照片放进 public/images/ 即可
+// 使用 import.meta.env.BASE_URL 自动适配 base 路径（本地 / ，GitHub Pages /JoyFarm/）
+const base = import.meta.env.BASE_URL
 export const IMAGES = {
-  hero: '/images/hero.jpg',
-  blackJade: '/images/black-jade.png',
-  ponca: '/images/ponca.png',
-  graduate: '/images/graduate.png',
-  goldenAutumn: '/images/golden-autumn.jpg',
-  farm: '/images/farm.jpg'
+  hero: `${base}images/hero.jpg`,
+  blackJade: `${base}images/black-jade.png`,
+  ponca: `${base}images/ponca.png`,
+  graduate: `${base}images/graduate.png`,
+  goldenAutumn: `${base}images/golden-autumn.jpg`,
+  farm: `${base}images/farm.jpg`
 }
 
 export function getVarietyImage(id) {
