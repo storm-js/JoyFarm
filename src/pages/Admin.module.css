@@ -1,0 +1,447 @@
+/* ===== 密码登录页 ===== */
+.authPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c1810 0%, #5a4030 50%, #8B4513 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 400px;
+  background: #fffdf9;
+  border-radius: 20px;
+  padding: 40px 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.authIcon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.authTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #3d2e22;
+  margin-bottom: 6px;
+}
+
+.authSubtitle {
+  font-size: 0.85rem;
+  color: #a0958a;
+  margin-bottom: 28px;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.authInput {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e0d5cc;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #3d2e22;
+  background: #f8f4f0;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  letter-spacing: 2px;
+}
+
+.authInput:focus {
+  border-color: #8B4513;
+  background: white;
+}
+
+.authError {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #c62828;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.authBtn {
+  margin-top: 6px;
+  padding: 14px;
+  background: linear-gradient(135deg, #8B4513, #5a4030);
+  color: white;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.authBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.authBack {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #a0958a;
+}
+
+.authBack:hover {
+  color: #3d2e22;
+}
+
+.page {
+  min-height: 100vh;
+  background: #efe9e4;
+  padding-bottom: 60px;
+}
+
+.logoutBtn {
+  padding: 8px 18px;
+  background: transparent;
+  color: #5a4a3a;
+  border: 1px solid #c0b0a0;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background: #3d2e22;
+  color: white;
+  border-color: #3d2e22;
+}
+
+.header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px 20px;
+  text-align: center;
+}
+
+.backBtn {
+  display: inline-block;
+  color: #5a4a3a;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2d1810;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #8a7a6a;
+  line-height: 1.6;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 生成器 */
+.generator {
+  background: #fffdf9;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.genSection {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5a4a3a;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.varietyPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.varietyBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #f8f4f0;
+  border: 2px solid #e0d5cc;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a4a3a;
+  transition: all 0.3s ease;
+}
+
+.varietyBtn:hover {
+  border-color: #a08070;
+}
+
+.varietyActive {
+  border-width: 2px;
+}
+
+.varietyColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.monthInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0d5cc;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #3d2e22;
+  background: #f8f4f0;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.monthInput:focus {
+  border-color: #5a4a3a;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #a0958a;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* 生成结果 */
+.result {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background: #f8f4f0;
+  border-radius: 16px;
+  align-items: center;
+}
+
+.qrWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.qrImg {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  border: 3px solid white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.qrLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.qrBatch {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #3d2e22;
+}
+
+.qrUntil {
+  font-size: 0.75rem;
+  color: #a0958a;
+}
+
+.linkBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linkLabel {
+  font-size: 0.75rem;
+  color: #a0958a;
+  letter-spacing: 1px;
+}
+
+.linkRow {
+  display: flex;
+  gap: 8px;
+}
+
+.linkText {
+  flex: 1;
+  padding: 10px 14px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0d5cc;
+  font-size: 0.78rem;
+  color: #3d2e22;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.copyBtn {
+  padding: 10px 20px;
+  background: #3d2e22;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.copyBtn:hover {
+  background: #2d1810;
+  transform: scale(1.03);
+}
+
+.previewBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #2e7d32;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.previewBtn:hover {
+  background: #1b5e20;
+  transform: scale(1.03);
+}
+
+/* 历史批次 */
+.history {
+  background: #fffdf9;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+}
+
+.historyTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3d2e22;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0ebe5;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #f5f0eb;
+}
+
+.historyItem:last-child {
+  border-bottom: none;
+}
+
+.historyLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.historyColor {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.historyName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3d2e22;
+  display: block;
+}
+
+.historyBatch {
+  font-size: 0.78rem;
+  font-family: 'Courier New', monospace;
+  color: #a0958a;
+}
+
+.historyRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.historyCount {
+  font-size: 0.8rem;
+  color: #a0958a;
+}
+
+.historyLink {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3d2e22;
+  padding: 6px 16px;
+  background: #f8f4f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.historyLink:hover {
+  background: #3d2e22;
+  color: white;
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+  .result {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .linkBox {
+    width: 100%;
+  }
+
+  .linkRow {
+    flex-direction: column;
+  }
+
+  .historyItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

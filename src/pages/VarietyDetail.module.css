@@ -1,0 +1,682 @@
+.page {
+  min-height: 100vh;
+  background: #efe9e4;
+  padding-bottom: 60px;
+}
+
+/* ===== 返回栏 ===== */
+.backBar {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #5a4a3a;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.backBtn:hover {
+  color: #2d1810;
+}
+
+/* ===== 冻结提示条 ===== */
+.frozenBar {
+  max-width: 720px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border-radius: 12px;
+  border: 1px solid #ffc107;
+  font-size: 0.85rem;
+  color: #856404;
+  line-height: 1.5;
+}
+
+.frozenBar strong {
+  font-weight: 800;
+}
+
+.frozenIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ===== 档案卡片 ===== */
+.card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fffdf9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== 档案头部 ===== */
+.cardHeader {
+  position: relative;
+  padding: 32px 28px 28px;
+  overflow: hidden;
+}
+
+.headerBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  transform: scale(1.1);
+}
+
+.headerOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.batchBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.batchLabel {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.batchNo {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.headerLogo {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.varietyName {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.varietyLatin {
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.85;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+}
+
+/* ===== 信息栏 ===== */
+.infoBar {
+  display: flex;
+  align-items: center;
+  padding: 18px 28px;
+  background: #f8f4f0;
+  border-bottom: 1px solid #ede5dd;
+}
+
+.infoBarItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.infoBarLabel {
+  font-size: 0.7rem;
+  color: #a0958a;
+  letter-spacing: 1px;
+}
+
+.infoBarValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5a4a3a;
+}
+
+.infoBarDivider {
+  width: 1px;
+  height: 32px;
+  background: #e0d5cc;
+  flex-shrink: 0;
+}
+
+/* ===== 分区 ===== */
+.section {
+  padding: 28px 28px 28px;
+  border-bottom: 1px solid #f5f0eb;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sectionIcon {
+  font-size: 1.3rem;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #3d2e22;
+  flex: 1;
+}
+
+.sectionTag {
+  font-size: 0.7rem;
+  color: #a0958a;
+  padding: 4px 10px;
+  background: #f5f0eb;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+.sectionDesc {
+  font-size: 0.95rem;
+  color: #6b5a4a;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #faf6f2;
+  border-radius: 12px;
+  border-left: 3px solid #c41e3a;
+}
+
+/* ===== 特性卡片 ===== */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 10px;
+  background: linear-gradient(135deg, #faf6f2 0%, #fff 100%);
+  border-radius: 12px;
+  border: 1px solid #f0ebe5;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.featureIcon {
+  font-size: 1.5rem;
+}
+
+.featureValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3d2e22;
+  text-align: center;
+}
+
+.featureLabel {
+  font-size: 0.7rem;
+  color: #a0958a;
+  letter-spacing: 1px;
+}
+
+/* ===== 植物特征 ===== */
+.traitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.traitItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #faf6f2;
+  border-radius: 10px;
+  border: 1px solid #f0ebe5;
+}
+
+.traitLabel {
+  font-size: 0.8rem;
+  color: #a0958a;
+  flex-shrink: 0;
+}
+
+.traitValue {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #3d2e22;
+  text-align: right;
+}
+
+/* ===== 营养价值 ===== */
+.nutritionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nutritionHighlights {
+  font-size: 0.9rem;
+  color: #5a4a3a;
+  line-height: 1.7;
+  padding: 16px;
+  background: linear-gradient(135deg, #f1f8e9 0%, #fff 100%);
+  border-radius: 12px;
+  border-left: 3px solid #2e7d32;
+}
+
+.nutritionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.nutritionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 10px;
+  background: linear-gradient(135deg, #faf6f2 0%, #fff 100%);
+  border-radius: 12px;
+  border: 1px solid #f0ebe5;
+  transition: all 0.3s ease;
+}
+
+.nutritionItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.nutritionIcon {
+  font-size: 1.5rem;
+}
+
+.nutritionName {
+  font-size: 0.75rem;
+  color: #a0958a;
+  letter-spacing: 1px;
+}
+
+.nutritionData {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #3d2e22;
+}
+
+/* ===== 储存与食用 ===== */
+.storageCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.storageItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #fffdf9;
+  border-radius: 12px;
+  border: 1px solid #f0ebe5;
+  transition: all 0.3s ease;
+}
+
+.storageItem:hover {
+  background: #faf6f2;
+}
+
+.storageIcon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.storageLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #5a4a3a;
+  margin-bottom: 4px;
+}
+
+.storageText {
+  display: block;
+  font-size: 0.88rem;
+  color: #6b5a4a;
+  line-height: 1.6;
+}
+
+/* ===== 农事记录时间线 ===== */
+.timeline {
+  position: relative;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 4px;
+}
+
+.timelineLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.timelineDot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timelineDotIcon {
+  font-size: 1.2rem;
+}
+
+.timelineLine {
+  width: 2px;
+  flex: 1;
+  background: #e0d5cc;
+  margin: 4px 0;
+  min-height: 20px;
+}
+
+.timelineContent {
+  flex: 1;
+  padding-bottom: 24px;
+}
+
+.timelineDateBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.timelineDate {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #3d2e22;
+  font-family: 'Courier New', monospace;
+}
+
+.timelineType {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.timelineCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 18px;
+  border: 1px solid #f0ebe5;
+  border-left: 3px solid;
+  transition: all 0.3s ease;
+}
+
+.timelineCard:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.timelineTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2d1810;
+  margin-bottom: 6px;
+}
+
+.timelineDesc {
+  font-size: 0.88rem;
+  color: #6b5a4a;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.timelineFooter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.timelineOperator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #a0958a;
+}
+
+.operatorIcon {
+  font-size: 0.85rem;
+}
+
+.timelineSafe {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: #e65100;
+  background: #fff3e0;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.safeIcon {
+  font-size: 0.85rem;
+}
+
+/* ===== 养护要点 ===== */
+.careList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.careItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #f8fdf8;
+  border-radius: 12px;
+  border: 1px solid #e8f5e9;
+  transition: all 0.3s ease;
+}
+
+.careItem:hover {
+  background: #f0faf0;
+  transform: translateX(4px);
+}
+
+.careNum {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.careText {
+  font-size: 0.9rem;
+  color: #3d5a3d;
+  line-height: 1.6;
+  padding-top: 3px;
+}
+
+/* ===== 档案底部 ===== */
+.cardFooter {
+  padding: 20px 28px;
+  text-align: center;
+  background: #f8f4f0;
+}
+
+.footerText {
+  font-size: 0.72rem;
+  color: #a0958a;
+  letter-spacing: 1px;
+}
+
+/* ===== 返回首页 ===== */
+.homeBtnWrap {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.homeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 28px;
+  background: white;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3d2e22;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.homeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ===== 404 ===== */
+.notFound {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #efe9e4;
+}
+
+.notFoundLink {
+  padding: 12px 30px;
+  background: #3d2e22;
+  color: white;
+  border-radius: 25px;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 600px) {
+  .card {
+    border-radius: 0;
+  }
+
+  .cardHeader {
+    padding: 24px 20px;
+  }
+
+  .varietyName {
+    font-size: 1.7rem;
+  }
+
+  .headerTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .infoBar {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .infoBarDivider {
+    display: none;
+  }
+
+  .infoBarItem {
+    flex: 1 1 40%;
+  }
+
+  .section {
+    padding: 22px 20px;
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .traitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutritionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timelineDot {
+    width: 36px;
+    height: 36px;
+  }
+
+  .timelineDotIcon {
+    font-size: 1rem;
+  }
+}
