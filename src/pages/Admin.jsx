@@ -57,8 +57,8 @@ export default function Admin() {
   const variety = getVarietyById(selectedVariety)
 
   const shareUrl = typeof window !== 'undefined'
-    ? `${window.location.origin}/variety/${selectedVariety}?until=${until}`
-    : `/variety/${selectedVariety}?until=${until}`
+    ? `${window.location.origin}${window.location.pathname}#/variety/${selectedVariety}?until=${until}`
+    : `#/variety/${selectedVariety}?until=${until}`
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(shareUrl)}`
 
   const handleCopy = () => {

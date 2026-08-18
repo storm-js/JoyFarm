@@ -1,15 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// 部署到 GitHub Pages 项目页面时,base 必须是 '/仓库名/'
-// 1. 项目页面(用户名.github.io/仓库名/):  改成 '/仓库名/'  例如 '/plantjoy/'
-// 2. 用户主页(用户名.github.io):        用 '/'
-// 3. 本地开发不受影响
-const repoName = 'JoyFarm' // 仓库 https://github.com/storm-js/JoyFarm
-
+// 部署到 Cloudflare Workers / Vercel 等根路径托管平台
+// base 设为 './' 可部署到任意子路径,HashRouter 保证刷新不 404
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
+  base: './',
   server: {
     host: '0.0.0.0',
     port: 5173
