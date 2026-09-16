@@ -23,17 +23,22 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth 会干扰 ScrollToTop 的精确滚动,移除 */
+  overflow-x: hidden;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  background: var(--bg-gradient);
+  background: transparent;
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* iOS 底部安全区(Home 指示器) */
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 a {

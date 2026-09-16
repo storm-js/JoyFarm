@@ -1,0 +1,210 @@
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: transparent;
+  font-family: 'SimHei', 'Microsoft YaHei', '黑体', sans-serif;
+  font-weight: bold;
+}
+
+/* ===== 顶部导航 ===== */
+.navBar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 20px 0;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  /* color: #5a3e2b; */
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.backBtn:hover {
+  opacity: 1;
+}
+
+/* ===== 标题 ===== */
+.header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 16px;
+  /* color: #2d1810; */
+  position: relative;
+  display: inline-block;
+}
+
+/* ===== 内容区 ===== */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.sectionNum {
+  font-size: 2.2rem;
+  font-weight: 900;
+  /* color: #5a3e2b; */
+  letter-spacing: 1px;
+}
+
+.sectionSep {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #a08070;
+  margin: 0 4px;
+}
+
+.sectionName {
+  font-size: 1.8rem;
+  font-weight: 800;
+  /* color: #2d1810; */
+  letter-spacing: 4px;
+}
+
+.paragraph {
+  font-size: 1.05rem;
+  /* color: #3d2a1f; */
+  line-height: 1.9;
+  text-align: justify;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* ===== 底部 ===== */
+.footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px calc(60px + env(safe-area-inset-bottom));
+  border-top: 1px solid #e8ddd0;
+}
+
+.footerText {
+  font-size: 1rem;
+  /* color: #5a3e2b; */
+  line-height: 1.9;
+  text-align: justify;
+  margin-bottom: 32px;
+}
+
+.footerBrand {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.qrBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 6px; */
+}
+
+.qr {
+  width: 96px;
+  height: auto;
+  display: block;
+}
+
+.qrLabel {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .navBar {
+    padding: 16px 16px 0;
+  }
+
+  .header {
+    padding: 20px 16px 28px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    letter-spacing: 5px;
+    font-weight: 600;
+  }
+
+  .content {
+    padding: 0 16px 40px;
+  }
+
+  .section {
+    margin-bottom: 36px;
+  }
+
+  .sectionNum {
+    font-size: 1.5rem;
+  }
+
+  .sectionSep {
+    font-size: 1.2rem;
+  }
+
+  .sectionName {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+
+  .paragraph {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+
+  .footer {
+    padding: 28px 16px calc(40px + env(safe-area-inset-bottom));
+  }
+
+  .footerText {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .footerBrand {
+    gap: 20px;
+  }
+
+  .qr {
+    width: 76px;
+  }
+
+  .qrLabel {
+    font-size: 0.75rem;
+  }
+}

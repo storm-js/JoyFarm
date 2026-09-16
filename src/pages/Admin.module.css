@@ -1,6 +1,7 @@
 /* ===== 密码登录页 ===== */
 .authPage {
   min-height: 100vh;
+  min-height: 100dvh;
   background: linear-gradient(135deg, #2c1810 0%, #5a4030 50%, #8B4513 100%);
   display: flex;
   align-items: center;
@@ -100,6 +101,7 @@
 
 .page {
   min-height: 100vh;
+  min-height: 100dvh;
   background: #efe9e4;
   padding-bottom: 60px;
 }

@@ -1,16 +1,26 @@
 // 树莓品种图片
-// hero/farm 是 AI 生成并下载到本地 public/images/ 的大图（不参与防盗链）
-// 4个品种果实图直接引用 AI 图片生成API的CDN链接，浏览器直接访问正常
-// 如果以后想换成自己的照片，把对应URL改成 'images/xxx.jpg' 然后把照片放进 public/images/ 即可
-// 使用 import.meta.env.BASE_URL 自动适配 base 路径（本地 / ，GitHub Pages /JoyFarm/）
+// 图片均放在 public/images/ 下，中文文件名使用 encodeURIComponent 处理
 const base = import.meta.env.BASE_URL
+const img = (file) => `${base}images/${encodeURIComponent(file)}`
+
 export const IMAGES = {
-  hero: `${base}images/hero.jpg`,
-  blackJade: `${base}images/black-jade.png`,
-  ponca: `${base}images/ponca.png`,
-  graduate: `${base}images/graduate.png`,
-  goldenAutumn: `${base}images/golden-autumn.jpg`,
-  farm: `${base}images/farm.jpg`
+  hero: img('hero.jpg'),
+  farm: img('farm.jpg'),
+  blackJade: img('墨玉.jpg'),
+  ponca: img('庞卡.jpg'),
+  graduate: img('毕业生.jpg'),
+  goldenAutumn: img('golden-autumn.jpg'),
+  furida: img('福瑞达.jpg'),
+  traveler: img('旅行者.jpg'),
+  th: img('TH.jpg'),
+  beike: img('北科.jpg'),
+  babyCakes: img('甜心宝贝.jpg'),
+  fendai: img('白花粉黛.jpg'),
+  tayberry: img('泰莓.jpg'),
+  hongzuan: img('红钻.jpg'),
+  fengqiu: img('丰秋.jpg'),
+  hongmeng: img('红梦.jpg'),
+  bubblegum: img('黄蓬蘲.jpg')
 }
 
 export function getVarietyImage(id) {
@@ -18,7 +28,18 @@ export function getVarietyImage(id) {
     'black-jade': IMAGES.blackJade,
     'ponca': IMAGES.ponca,
     'graduate': IMAGES.graduate,
-    'golden-autumn': IMAGES.goldenAutumn
+    'golden-autumn': IMAGES.goldenAutumn,
+    'furida': IMAGES.furida,
+    'traveler': IMAGES.traveler,
+    'th': IMAGES.th,
+    'beike': IMAGES.beike,
+    'baby-cakes': IMAGES.babyCakes,
+    'fendai': IMAGES.fendai,
+    'tayberry': IMAGES.tayberry,
+    'hongzuan': IMAGES.hongzuan,
+    'fengqiu': IMAGES.fengqiu,
+    'hongmeng': IMAGES.hongmeng,
+    'bubblegum': IMAGES.bubblegum
   }
   return map[id] || IMAGES.blackJade
 }
@@ -38,30 +59,31 @@ export const ACTIVITY_TYPES = {
 }
 
 const varieties = [
+  // ==================== 黑莓 ====================
   {
     id: 'black-jade',
-    name: '黑莓墨玉',
-    latinName: 'Rubus fruticosus "Jade"',
-    description: '欢喜农场优选引进的大果黑莓品种，经本地风土驯化培育而成。果实紫黑油亮，平均单果重达8-10g，最大单果15g，为目前黑莓中果形最大的品种之一。风味浓甜微酸，香气馥郁，果肉紧实耐储运，被誉为"黑莓之王"。适合高端鲜食与加工制作果酱、果酒。',
+    name: '墨玉',
+    latinName: '国内选育 · 双季黑莓',
+    description: '双季黑莓，极其优秀的黑莓品种。果实硬度高，非常耐储运。成熟后脆甜，花香浓郁，糖度18-20度左右。软籽，黑莓里为数不多弱籽粒感品种。苗株长势旺，抗性好，挂果量很大。',
     color: '#2c0a33',
     batchNo: 'HX-MY-2608-001',
     plantDate: '2026-03-05',
     features: {
       fruitWeight: '8-10g（最大15g）',
-      sweetness: '10-12°Brix',
-      harvestSeason: '6月下旬至7月下旬',
-      yield: '每株约3-4kg',
+      sweetness: '18-20°Brix',
+      harvestSeason: '双季 · 夏秋两茬',
+      yield: '挂果量大',
       coldHardiness: '-17°C',
-      diseaseResistance: '较强'
+      diseaseResistance: '抗性好 · 长势旺'
     },
     plantTraits: {
-      type: '夏果型黑莓',
+      type: '双季黑莓',
       height: '180-220cm',
       thorn: '少刺',
       fruitShape: '长圆锥形',
       fruitColor: '紫黑色 · 油亮有光泽',
-      firmness: '紧实 · 耐储运',
-      flavor: '浓甜微酸，果香浓郁醇厚，黑莓特有香气突出',
+      firmness: '硬度高 · 非常耐储运',
+      flavor: '脆甜花香浓郁 · 软籽弱籽粒感',
       region: '华北、华中、华东、西南、西北南部'
     },
     nutrition: {
@@ -80,7 +102,7 @@ const varieties = [
       '每3-4天浇一次水，果实膨大期适当增加浇水频率',
       '以基肥为主，秋季重施腐熟有机肥，生长期追施磷钾肥',
       '黑莓枝条长，需搭建双臂篱架，高度1.8-2m，及时引枝上架',
-      '采收后剪除结果老枝，保留8-10根当年生健壮枝条',
+      '双季品种当年生枝秋季也会结果，冬季修剪注意保留健壮基生枝',
       '注意防治茎腐病，雨季及时排水，保持枝干通风透光'
     ],
     cultivationLog: [
@@ -95,51 +117,51 @@ const varieties = [
       { date: '2026-06-01', type: 'water',     title: '果实膨大期灌溉', desc: '铺设滴灌系统，每3天滴灌1次，每次1.5小时', operator: '李师傅' },
       { date: '2026-06-10', type: 'fertilize', title: '果实膨大期追肥', desc: '叶面喷施0.3%磷酸二氢钾+0.1%硫酸镁，每7天一次，共3次', operator: '李师傅' },
       { date: '2026-06-18', type: 'pesticide', title: '防治斑翅果蝇', desc: '挂果蝇诱虫灯每亩4盏，配合糖醋液诱捕，物理防治为主', operator: '张师傅', safePeriod: '0天(物理防治)' },
-      { date: '2026-06-28', type: 'harvest',   title: '开始采收',   desc: '果实90%转黑且有光泽时采收，选晴天早晨露水干后采摘', operator: '王师傅' }
+      { date: '2026-06-28', type: 'harvest',   title: '夏果开始采收', desc: '果实90%转黑且有光泽时采收，选晴天早晨露水干后采摘', operator: '王师傅' }
     ]
   },
   {
     id: 'ponca',
-    name: '黑莓庞卡',
-    latinName: 'Rubus fruticosus "Ponca"',
-    description: '美国阿肯色州立大学最新黑莓代表品种之一（Sweet-Ark®系列），被评价为阿肯色系最甜的黑莓品种。可溶性固形物含量常超过13%，酸度低于1%。果实中等大小，紧实耐储，采后品质极佳。枝条节间短，植株紧凑，管理方便，抗寒抗锈病能力优秀，是商品化规模种植的首选黑莓品种。',
+    name: '庞卡',
+    latinName: 'ponca · 直立无刺单季黑莓',
+    description: '直立无刺单季黑莓，该品种是国内引进的北美最新品种。其果实高甜低酸，糖度16度以上。果实硬度高，耐存放。它虽是单季黑莓，但老枝条可多次萌发，采收期很长，果量大。',
     color: '#1a1a2e',
     batchNo: 'HX-PK-2608-002',
     plantDate: '2026-03-02',
     features: {
       fruitWeight: '6-8g（平均6.8g）',
-      sweetness: '11-13°Brix',
-      harvestSeason: '6月中旬至7月中旬',
-      yield: '每株约3.5-5kg',
+      sweetness: '16°Brix以上',
+      harvestSeason: '单季 · 采收期很长',
+      yield: '果量大',
       coldHardiness: '-18°C',
-      diseaseResistance: '强'
+      diseaseResistance: '无刺直立 · 耐存放'
     },
     plantTraits: {
-      type: '夏果型黑莓',
+      type: '直立无刺单季黑莓',
       height: '150-180cm',
       thorn: '无刺',
       fruitShape: '卵圆形',
       fruitColor: '深黑色 · 有光泽',
-      firmness: '极紧实 · 耐储运性极佳',
-      flavor: '超甜少酸，几乎无涩味，黑莓香气浓郁柔和，回味佳',
+      firmness: '硬度高 · 耐存放',
+      flavor: '高甜低酸，黑莓香气浓郁柔和，老枝可多次萌发采收期长',
       region: '华北、华中、华东、西南（6-9区）'
     },
     nutrition: {
       vitaminC: '25mg/100g',
       anthocyanin: '90-150mg/100g',
       ellagicAcid: '富含',
-      highlights: '阿肯色州立大学评价为"甜度最高的黑莓品种"，富含花青素、维生素E、水杨酸，抗氧化成分全面，鞣花酸含量高于普通水果数倍'
+      highlights: '北美引进最新品种，高甜低酸，富含花青素、维生素E、水杨酸，抗氧化成分全面，鞣花酸含量高于普通水果数倍'
     },
     storage: {
       coldStorage: '0-2°C 冷藏可保鲜10-14天',
-      tips: '庞卡为所有黑莓中耐储性最好的品种之一，商品性突出；储存期不易掉色、不易出水，7天以上仍保持紧实口感',
+      tips: '果实硬度高耐储性好，商品性突出；储存期不易掉色、不易出水',
       eating: '高端鲜食首选、制作黑莓酱、鲜榨黑莓汁、酸奶配料、甜点装饰、速冻出口'
     },
     careGuide: [
       '庞卡喜光喜肥，选择向阳肥沃地块，宜采用高垄栽培',
       '每3-4天浇水一次，结果期保持土壤湿润但不积水',
       '基肥重施腐熟有机肥每亩2500kg，生长期每月一次复合肥',
-      '植株紧凑，适合桩柱式或T型架，间距2m×0.7m即可',
+      '植株直立紧凑，适合桩柱式或T型架，间距2m×0.7m即可',
       '无刺管理方便，采果后及时剪除老枝，每株留6-8新枝',
       '庞卡整体抗病性好，重点注意雨季预防灰霉病即可'
     ],
@@ -154,44 +176,380 @@ const varieties = [
       { date: '2026-05-20', type: 'pesticide', title: '预防叶锈病',     desc: '喷施代森锰锌600倍液全面喷施叶面，庞卡抗锈性好预防为主', operator: '张师傅', safePeriod: '15天' },
       { date: '2026-06-05', type: 'water',     title: '果实膨大期灌溉', desc: '每3天滴灌1次，每次1小时，保持土壤湿度稳定', operator: '李师傅' },
       { date: '2026-06-15', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，促进转色增甜', operator: '李师傅' },
-      { date: '2026-06-22', type: 'harvest',   title: '开始采收',       desc: '果实完全转黑发亮时采收，每2-3天采一次，庞卡挂果期长', operator: '王师傅' }
+      { date: '2026-06-22', type: 'harvest',   title: '开始采收',       desc: '果实完全转黑发亮时采收，老枝可多次萌发，采收期长', operator: '王师傅' }
     ]
   },
   {
+    id: 'furida',
+    name: '福瑞达',
+    latinName: 'PK153 · 双季无刺黑莓',
+    description: '双季无刺黑莓，长势迅猛，易成活，挂果多，单果最大可达二十几克，糖度15左右。刚转黑之后酸涩度比较高，需要转黑后在树上挂果5-7日之后再采摘。完全成熟后硬度低，不易储放。',
+    color: '#241f3b',
+    batchNo: 'HX-FR-2609-005',
+    plantDate: '2026-03-06',
+    features: {
+      fruitWeight: '大果 · 最大二十几克',
+      sweetness: '15°Brix左右',
+      harvestSeason: '双季 · 挂果多',
+      yield: '长势迅猛 · 丰产',
+      coldHardiness: '—',
+      diseaseResistance: '无刺 · 易成活（完熟不耐储）'
+    },
+    plantTraits: {
+      type: '双季无刺黑莓',
+      height: '长势迅猛 · 需搭架',
+      thorn: '无刺',
+      fruitShape: '大果长形',
+      fruitColor: '紫黑色',
+      firmness: '完熟后硬度低 · 不易储放',
+      flavor: '转黑后挂树5-7天完全成熟，糖度约15度风味佳',
+      region: '全国大部分地区'
+    },
+    careGuide: [
+      '双季无刺黑莓，长势迅猛易成活，新手友好品种',
+      '单果最大可达二十几克、挂果多，需肥量大，注意补充磷钾肥',
+      '刚转黑酸涩度高，务必等转黑后挂树5-7天再采摘',
+      '完全成熟后硬度低不易储放，宜即采即食或当天加工',
+      '枝条生长快，及时搭架牵引，保持通风透光'
+    ],
+    cultivationLog: [
+      { date: '2026-03-06', type: 'soil',      title: '整地定植',       desc: '高垄30cm栽培，行距2m株距0.8m，每亩施腐熟羊粪3000kg+复合肥50kg作基肥，福瑞达长势迅猛需肥量大', operator: '王师傅' },
+      { date: '2026-03-11', type: 'water',     title: '定植浇水',       desc: '定植后浇透定根水，每株约4L，覆盖黑色地膜保墒抑草', operator: '李师傅' },
+      { date: '2026-03-28', type: 'inspect',   title: '成活检查',       desc: '成活率99%，福瑞达萌芽早、长势迅猛，新梢抽生整齐', operator: '王师傅' },
+      { date: '2026-04-10', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素20g+高氮水溶肥，福瑞达生长快需勤追肥', operator: '李师傅' },
+      { date: '2026-04-25', type: 'support',   title: '搭架引枝',       desc: '枝条生长迅猛，及时搭建T型架，架高2m，新梢60cm开始引绑', operator: '张师傅' },
+      { date: '2026-05-06', type: 'prune',     title: '疏枝定梢',       desc: '每株选留6-8根健壮主枝，去除过密弱枝，改善通风透光', operator: '王师傅' },
+      { date: '2026-05-12', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥25g+硫酸钾10g，沟施覆土后浇水', operator: '李师傅' },
+      { date: '2026-05-20', type: 'pesticide', title: '预防灰霉病',     desc: '喷施异菌脲1000倍液，花期重点保护花器和幼果', operator: '张师傅', safePeriod: '14天' },
+      { date: '2026-06-05', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每2-3天一次，每次1.5小时，大果期需水量大', operator: '李师傅' },
+      { date: '2026-06-12', type: 'fertilize', title: '膨果追肥',       desc: '叶面喷施0.3%磷酸二氢钾，配合高钾水溶肥冲施，促进果实膨大', operator: '李师傅' },
+      { date: '2026-06-25', type: 'harvest',   title: '夏果开始采收',   desc: '福瑞达刚转黑酸涩度高，需在树上挂果5-7天完全成熟后再采；单果最大二十几克，完熟后果实偏软，当天采收当天销售', operator: '王师傅' },
+      { date: '2026-09-02', type: 'harvest',   title: '秋果开始采收',   desc: '当年生枝顶端秋果陆续转色成熟，分批采收，秋果持续至10月', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'traveler',
+    name: '旅行者',
+    latinName: 'PK190 · 半直立双季无刺黑莓',
+    description: '半直立双季无刺黑莓，果型中等大小10g左右，糖度14度左右。果实硬度中上等，相对耐存放，口味比福瑞达要偏甜一些。此品种介于福瑞达和墨玉之间，属于比较均衡的品种。',
+    color: '#2d2a4a',
+    batchNo: 'HX-LX-2609-006',
+    plantDate: '2026-03-07',
+    features: {
+      fruitWeight: '10g左右',
+      sweetness: '14°Brix',
+      harvestSeason: '双季',
+      yield: '丰产稳产',
+      coldHardiness: '—',
+      diseaseResistance: '无刺 · 硬度中上耐存放'
+    },
+    plantTraits: {
+      type: '半直立双季无刺黑莓',
+      height: '中等 · 半直立',
+      thorn: '无刺',
+      fruitShape: '中等果形',
+      fruitColor: '紫黑色',
+      firmness: '硬度中上等 · 相对耐存放',
+      flavor: '比福瑞达偏甜，介于福瑞达与墨玉之间，风味均衡',
+      region: '全国大部分地区'
+    },
+    careGuide: [
+      '半直立双季无刺黑莓，果重约10g，糖度约14度',
+      '果实硬度中上等，相对耐存放，商品性较好',
+      '口味比福瑞达偏甜，属于表现均衡的品种',
+      '建议搭架牵引枝条，保持通风透光',
+      '常规水肥管理，果实膨大期保持土壤湿润'
+    ],
+    cultivationLog: [
+      { date: '2026-03-07', type: 'soil',      title: '整地定植',       desc: '高垄30cm，行距2m株距0.7m，每亩施腐熟羊粪2500kg+饼肥80kg作基肥', operator: '王师傅' },
+      { date: '2026-03-12', type: 'water',     title: '定植浇水',       desc: '定植后浇透定根水，覆盖黑色地膜保墒', operator: '李师傅' },
+      { date: '2026-03-30', type: 'inspect',   title: '成活检查',       desc: '成活率98%，半直立株型，萌芽整齐，长势稳健', operator: '王师傅' },
+      { date: '2026-04-12', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素15g+复合肥15g，沟施后浇水', operator: '李师傅' },
+      { date: '2026-04-26', type: 'support',   title: '搭架引枝',       desc: '半直立品种，搭建T型架，架高1.8m，新梢引绑上架', operator: '张师傅' },
+      { date: '2026-05-04', type: 'prune',     title: '摘心疏枝',       desc: '新梢1m时摘心促分枝，每株留5-7根主枝', operator: '王师傅' },
+      { date: '2026-05-12', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥25g，配合硫酸钾10g', operator: '李师傅' },
+      { date: '2026-05-22', type: 'pesticide', title: '预防叶部病害',   desc: '喷施代森锰锌600倍液全面防护，无刺品种操作方便', operator: '张师傅', safePeriod: '15天' },
+      { date: '2026-06-06', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每3天一次，每次1小时，保持土壤湿度稳定', operator: '李师傅' },
+      { date: '2026-06-16', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，促进转色增甜', operator: '李师傅' },
+      { date: '2026-06-28', type: 'harvest',   title: '夏果开始采收',   desc: '果重约10g，糖度14度左右，比福瑞达偏甜，硬度中上较耐存放', operator: '王师傅' },
+      { date: '2026-09-05', type: 'harvest',   title: '秋果开始采收',   desc: '当年生枝秋果成熟，表现均衡稳定，分批采收', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'th',
+    name: 'TH黑莓',
+    latinName: '北美引进 · 半直立双季无刺黑莓',
+    description: '半直立型双季无刺黑莓，果实中大，小于福瑞达，硬度高，耐储放。酸度低，风味浓郁。挂果对冷量需求低，适合南方种植。本品种小苗期长势慢，需耐心等待苗期成长。',
+    color: '#1f2937',
+    batchNo: 'HX-TH-2609-007',
+    plantDate: '2026-03-09',
+    features: {
+      fruitWeight: '中大（小于福瑞达）',
+      sweetness: '酸度低 · 风味浓郁',
+      harvestSeason: '双季',
+      yield: '—',
+      coldHardiness: '低冷量需求',
+      diseaseResistance: '无刺 · 硬度高耐储 · 适合南方'
+    },
+    plantTraits: {
+      type: '半直立双季无刺黑莓',
+      height: '中等（小苗期长势慢）',
+      thorn: '无刺',
+      fruitShape: '中大有光泽',
+      fruitColor: '紫黑色',
+      firmness: '硬度高 · 耐储放',
+      flavor: '酸度低，风味浓郁',
+      region: '南方地区（冷量需求低）'
+    },
+    careGuide: [
+      '半直立双季无刺黑莓，对冷量需求低，特别适合南方种植',
+      '小苗期长势慢，属正常现象，需耐心等待苗期成长',
+      '果实酸度低、风味浓郁，硬度高耐储放',
+      '盆土保持湿润不积水，生长期定期补充磷钾肥',
+      '半直立株型，建议简单搭架牵引'
+    ],
+    cultivationLog: [
+      { date: '2026-03-09', type: 'soil',      title: '整地定植',       desc: '南方多雨区起高垄40cm防积水，行距2m株距0.7m，每亩施腐熟羊粪2500kg+过磷酸钙60kg', operator: '王师傅' },
+      { date: '2026-03-14', type: 'water',     title: '定植浇水',       desc: '定植后浇透定根水，覆盖黑色地膜，南方注意垄沟排水畅通', operator: '李师傅' },
+      { date: '2026-04-02', type: 'inspect',   title: '成活检查',       desc: '成活率97%，小苗期长势偏慢属本品种特性，无需额外处理，耐心等待苗期成长', operator: '王师傅' },
+      { date: '2026-04-20', type: 'fertilize', title: '薄肥勤施',       desc: '小苗期以低浓度水溶肥薄施勤施，每10天一次，避免浓肥烧苗', operator: '李师傅' },
+      { date: '2026-05-08', type: 'support',   title: '立杆牵引',       desc: '半直立株型，立杆简易牵引，保持枝条直立通风', operator: '张师傅' },
+      { date: '2026-05-15', type: 'prune',     title: '疏除细弱枝',     desc: '疏除细弱枝和过密枝，集中养分促主枝生长', operator: '王师傅' },
+      { date: '2026-05-25', type: 'fertilize', title: '花前追肥',       desc: '每株施磷钾肥为主复合肥20g，促进坐果', operator: '李师傅' },
+      { date: '2026-06-05', type: 'pesticide', title: '预防灰霉病',     desc: '南方梅雨前喷施腐霉利800倍液，重点喷花器果穗', operator: '张师傅', safePeriod: '14天' },
+      { date: '2026-06-15', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每3天一次，雨季及时排除垄沟积水', operator: '李师傅' },
+      { date: '2026-06-25', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，提高果实硬度和糖度', operator: '李师傅' },
+      { date: '2026-07-05', type: 'harvest',   title: '夏果开始采收',   desc: '果实酸度低、风味浓郁，硬度高耐储放，冷量需求低适合南方种植表现良好', operator: '王师傅' },
+      { date: '2026-08-30', type: 'harvest',   title: '秋果开始采收',   desc: '秋果陆续成熟，低冷量品种南方秋季挂果稳定', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'beike',
+    name: '北科',
+    latinName: '花香黑莓 · 双季匍匐茎',
+    description: '双季黑莓，匍匐茎。枝条柔软，需要做支撑。果实中等，果量大。自带花香，甜度比较高，成熟后甜度能在16-18度。因为老枝挂果的特性，所以第二年才会大量结果。',
+    color: '#3d2438',
+    batchNo: 'HX-BK-2609-008',
+    plantDate: '2026-03-11',
+    features: {
+      fruitWeight: '中等',
+      sweetness: '16-18°Brix',
+      harvestSeason: '双季（第二年丰产）',
+      yield: '果量大',
+      coldHardiness: '—',
+      diseaseResistance: '自带花香 · 需搭支撑'
+    },
+    plantTraits: {
+      type: '双季黑莓 · 匍匐茎',
+      height: '枝条柔软 · 需支撑',
+      thorn: '—',
+      fruitShape: '中等果形',
+      fruitColor: '紫黑色',
+      firmness: '—',
+      flavor: '自带花香，甜度高，成熟后16-18度',
+      region: '老枝挂果特性，第二年大量结果'
+    },
+    careGuide: [
+      '双季黑莓，匍匐茎生长，枝条柔软，必须搭建支架支撑',
+      '果实自带花香，成熟后糖度16-18度，果量大',
+      '老枝挂果特性，第二年才会大量结果，首年勿急于产量',
+      '冬季注意保留健壮老枝，不可贴地平剪',
+      '匍匐枝条及时引绑上架，避免果实接触地面'
+    ],
+    cultivationLog: [
+      { date: '2026-03-11', type: 'soil',      title: '整地定植',       desc: '高垄栽培，行距2.2m株距0.8m（匍匐品种预留足够空间），每亩施腐熟羊粪2500kg+饼肥80kg', operator: '王师傅' },
+      { date: '2026-03-16', type: 'water',     title: '定植浇水',       desc: '定植后浇透定根水，覆盖黑色地膜', operator: '李师傅' },
+      { date: '2026-04-05', type: 'inspect',   title: '成活检查',       desc: '成活率98%，枝条柔软呈匍匐生长，需尽快搭架', operator: '王师傅' },
+      { date: '2026-04-18', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素15g+复合肥15g，促匍匐茎伸长', operator: '李师傅' },
+      { date: '2026-04-28', type: 'support',   title: '搭建篱架',       desc: '重点工作：匍匐茎必须搭架支撑，建多道铁丝篱架高1.8m，逐枝引绑上架', operator: '张师傅' },
+      { date: '2026-05-10', type: 'prune',     title: '疏除过密枝',     desc: '疏除过密匍匐枝和弱枝，每株留6-8根主枝扇形绑缚', operator: '王师傅' },
+      { date: '2026-05-18', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥20g+硫酸钾8g', operator: '李师傅' },
+      { date: '2026-06-01', type: 'pesticide', title: '预防茎腐病',     desc: '喷施甲基托布津1000倍液，重点喷匍匐茎接触部位', operator: '张师傅', safePeriod: '21天' },
+      { date: '2026-06-10', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每3天一次，避免果实贴地受潮', operator: '李师傅' },
+      { date: '2026-06-20', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，提升花香风味和糖度', operator: '李师傅' },
+      { date: '2026-07-02', type: 'harvest',   title: '首年试果采收',   desc: '首年少量挂果尝鲜，果实自带花香、糖度16-18度；老枝挂果特性，第二年将大量结果', operator: '王师傅' },
+      { date: '2026-08-20', type: 'prune',     title: '夏季修剪',       desc: '采果后疏除已结果老弱枝，保留健壮老枝和当年生新枝引绑上架，为第二年丰产做准备', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'baby-cakes',
+    name: '甜心宝贝',
+    latinName: 'Baby Cakes · 矮化无刺双季黑莓',
+    description: '矮化无刺双季黑莓，株型低矮紧凑，成株0.9米-1.2米，非常适合在阳台种植。果实中等，甜度高，挂果率高。',
+    color: '#3a2a3f',
+    batchNo: 'HX-TX-2609-009',
+    plantDate: '2026-03-12',
+    features: {
+      fruitWeight: '中等',
+      sweetness: '甜度高',
+      harvestSeason: '双季',
+      yield: '挂果率高',
+      coldHardiness: '—',
+      diseaseResistance: '无刺 · 矮化适合阳台'
+    },
+    plantTraits: {
+      type: '矮化双季无刺黑莓',
+      height: '0.9-1.2m（低矮紧凑）',
+      thorn: '无刺',
+      fruitShape: '中等果形',
+      fruitColor: '紫黑色',
+      firmness: '—',
+      flavor: '甜度高',
+      region: '阳台盆栽 · 家庭种植首选'
+    },
+    careGuide: [
+      '矮化无刺双季黑莓，成株仅0.9-1.2米，非常适合阳台盆栽',
+      '株型低矮紧凑，建议选用2加仑以上大盆种植',
+      '果实中等、甜度高、挂果率高',
+      '保证每天6小时以上光照，盆土保持湿润',
+      '无刺管理方便，是家庭种植的理想品种'
+    ],
+    cultivationLog: [
+      { date: '2026-03-12', type: 'soil',      title: '上盆栽植',       desc: '选用2加仑盆，基质按泥炭土:珍珠岩:腐熟羊粪=6:2:2配制，矮化品种专为阳台盆栽设计', operator: '王师傅' },
+      { date: '2026-03-15', type: 'water',     title: '定植浇水',       desc: '浇透定根水，放置阳台通风向阳处，缓苗一周', operator: '李师傅' },
+      { date: '2026-04-01', type: 'inspect',   title: '成活检查',       desc: '植株成活，株型低矮紧凑，新梢抽生正常', operator: '王师傅' },
+      { date: '2026-04-15', type: 'fertilize', title: '追施薄肥',       desc: '盆施缓释肥5g，配合低浓度水溶肥每10天一次，薄肥勤施', operator: '李师傅' },
+      { date: '2026-05-01', type: 'prune',     title: '疏枝整形',       desc: '株型紧凑无需搭架，仅疏除细弱枝，保持盆栽通风', operator: '王师傅' },
+      { date: '2026-05-10', type: 'fertilize', title: '花前追肥',       desc: '盆施磷钾肥为主复合肥5g，提高坐果率', operator: '李师傅' },
+      { date: '2026-05-25', type: 'pesticide', title: '物理防虫',       desc: '阳台种植以物理防治为主，盆边挂黄色粘虫板，无刺品种日常检查方便', operator: '张师傅', safePeriod: '0天(物理防治)' },
+      { date: '2026-06-08', type: 'water',     title: '果期浇水',       desc: '盆栽保水性差，每2天浇透一次，避免正午浇水伤根', operator: '李师傅' },
+      { date: '2026-06-18', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.2%磷酸二氢钾，促果实膨大增甜', operator: '李师傅' },
+      { date: '2026-06-30', type: 'harvest',   title: '夏果开始采收',   desc: '无刺采摘方便，果实甜度高、挂果率高，阳台即采即食', operator: '王师傅' },
+      { date: '2026-09-03', type: 'harvest',   title: '秋果开始采收',   desc: '当年生枝秋果成熟，矮化盆栽双季挂果，家庭观赏食用两相宜', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'fendai',
+    name: '白花粉黛',
+    latinName: '粉黛实生定繁 · 半直立双季无刺黑莓',
+    description: '半直立型双季无刺黑莓，果实中大，花色为白色，根据环境影像有时呈现粉色。果实表现均衡，糖度15-17度。果子硬度高，耐储放。对冷量需求低，可以南方种植。',
+    color: '#5b4b70',
+    batchNo: 'HX-FD-2609-010',
+    plantDate: '2026-03-13',
+    features: {
+      fruitWeight: '中大',
+      sweetness: '15-17°Brix',
+      harvestSeason: '双季',
+      yield: '表现均衡',
+      coldHardiness: '低冷量需求',
+      diseaseResistance: '无刺 · 硬度高耐储 · 可南方种植'
+    },
+    plantTraits: {
+      type: '半直立双季无刺黑莓',
+      height: '中等 · 半直立',
+      thorn: '无刺',
+      fruitShape: '中大果形',
+      fruitColor: '紫黑色 · 花白色（偶现粉色）',
+      firmness: '硬度高 · 耐储放',
+      flavor: '果实表现均衡，糖度15-17度',
+      region: '南方地区（冷量需求低）'
+    },
+    careGuide: [
+      '半直立双季无刺黑莓，花色白色，环境影响下有时呈现粉色',
+      '果实表现均衡，糖度15-17度，硬度高耐储放',
+      '对冷量需求低，南方地区也可种植',
+      '无刺管理方便，常规搭架牵引即可',
+      '花果观赏价值高，适合庭院栽培'
+    ],
+    cultivationLog: [
+      { date: '2026-03-13', type: 'soil',      title: '整地定植',       desc: '高垄30cm，行距2m株距0.7m，每亩施腐熟羊粪2500kg+饼肥80kg', operator: '王师傅' },
+      { date: '2026-03-18', type: 'water',     title: '定植浇水',       desc: '定植后浇透定根水，覆盖黑色地膜', operator: '李师傅' },
+      { date: '2026-04-03', type: 'inspect',   title: '成活检查',       desc: '成活率98%，半直立株型，生长均衡', operator: '王师傅' },
+      { date: '2026-04-15', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素15g+复合肥15g', operator: '李师傅' },
+      { date: '2026-04-30', type: 'support',   title: '搭架引枝',       desc: '搭建T型架，架高1.8m，新梢引绑上架', operator: '张师傅' },
+      { date: '2026-05-08', type: 'prune',     title: '疏枝定梢',       desc: '每株留6-8根主枝，疏除弱枝', operator: '王师傅' },
+      { date: '2026-05-16', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥20g+硫酸钾8g，白花品种花期观赏效果佳', operator: '李师傅' },
+      { date: '2026-05-28', type: 'pesticide', title: '预防病害',       desc: '喷施代森锰锌600倍液，保护白花幼果', operator: '张师傅', safePeriod: '15天' },
+      { date: '2026-06-08', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每3天一次，每次1小时', operator: '李师傅' },
+      { date: '2026-06-18', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，促果实均衡发育', operator: '李师傅' },
+      { date: '2026-07-02', type: 'harvest',   title: '夏果开始采收',   desc: '花色纯白（偶现粉色），果实糖度15-17度，硬度高耐储放', operator: '王师傅' },
+      { date: '2026-09-04', type: 'harvest',   title: '秋果开始采收',   desc: '秋果成熟，低冷量需求品种挂果稳定，南方庭院种植表现良好', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'tayberry',
+    name: '泰莓',
+    latinName: 'Tayberry · 黑莓×红树莓杂交',
+    description: '英国培育的黑莓与红树莓的杂交品种。枝条带有软刺，植株健壮，它结合了黑莓的丰产与果型和树莓的香气与较低的子粒感。作为罗甘莓的改良型品种，味道独特，值得一试。',
+    color: '#8B2942',
+    batchNo: 'HX-TM-2609-011',
+    plantDate: '2026-03-14',
+    features: {
+      fruitWeight: '大果（杂交优势）',
+      sweetness: '香气浓郁 · 子粒感低',
+      harvestSeason: '—',
+      yield: '丰产',
+      coldHardiness: '—',
+      diseaseResistance: '带软刺 · 植株健壮'
+    },
+    plantTraits: {
+      type: '黑莓×红树莓杂交品种',
+      height: '植株健壮',
+      thorn: '带软刺',
+      fruitShape: '长形大果',
+      fruitColor: '深红偏紫',
+      firmness: '—',
+      flavor: '结合黑莓果型与树莓香气，子粒感低，味道独特',
+      region: '罗甘莓改良型 · 全国大部分地区'
+    },
+    careGuide: [
+      '英国培育的黑莓×红树莓杂交品种（Tayberry）',
+      '枝条带有软刺，修剪采摘时建议戴手套',
+      '植株健壮、丰产，结合了黑莓的大果与树莓的香气',
+      '子粒感低，是罗甘莓的改良型品种，味道独特',
+      '需搭架引枝，果实成熟后及时采收'
+    ],
+    cultivationLog: [
+      { date: '2026-03-14', type: 'soil',      title: '整地定植',       desc: '高垄栽培，行距2.2m株距1m（杂交品种植株健壮需空间大），每亩施腐熟羊粪3000kg+过磷酸钙80kg', operator: '王师傅' },
+      { date: '2026-03-19', type: 'water',     title: '定植浇水',       desc: '浇透定根水，覆盖黑色地膜；枝条带软刺，作业时戴手套', operator: '李师傅' },
+      { date: '2026-04-06', type: 'inspect',   title: '成活检查',       desc: '成活率99%，植株健壮，新梢抽生有力', operator: '王师傅' },
+      { date: '2026-04-18', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素18g+复合肥15g，植株健壮需肥量较大', operator: '李师傅' },
+      { date: '2026-05-02', type: 'support',   title: '搭扇形篱架',     desc: '泰莓枝条长而软，搭建扇形篱架高2m，逐枝引绑（戴手套防软刺）', operator: '张师傅' },
+      { date: '2026-05-10', type: 'prune',     title: '疏枝整形',       desc: '每株留6-8根主枝扇形绑缚，疏除过密枝', operator: '王师傅' },
+      { date: '2026-05-20', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥25g+硫酸钾10g', operator: '李师傅' },
+      { date: '2026-06-02', type: 'pesticide', title: '预防茎腐病',     desc: '喷施甲基托布津1000倍液，重点喷茎基部', operator: '张师傅', safePeriod: '21天' },
+      { date: '2026-06-12', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每3天一次，每次1.5小时，大果期保证水分', operator: '李师傅' },
+      { date: '2026-06-22', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，促果实膨大着色', operator: '李师傅' },
+      { date: '2026-07-08', type: 'harvest',   title: '开始采收',       desc: '果实深红偏紫、长形大果，兼具树莓浓郁香气与低子粒感，成熟后及时采收', operator: '王师傅' },
+      { date: '2026-08-15', type: 'prune',     title: '采后修剪',       desc: '采果后剪除结果老枝，当年生新枝引绑上架，为来年结果做准备', operator: '王师傅' }
+    ]
+  },
+  // ==================== 红树莓 ====================
+  {
     id: 'graduate',
-    name: '红树莓毕业生',
-    latinName: 'Rubus idaeus "Graduate"',
-    description: '北美引进的纯甜大果型红树莓新品种，果实成熟后可溶性固形物可达12-14°Brix，完全无酸不涩，名副其实的"纯甜毕业生"。果实圆整饱满，单果重可达7-10g，是红树莓中果形最大的品种之一。果肉硬度高，货架期长，鲜食品质无可挑剔，深受高端市场和采摘园的欢迎。',
+    name: '毕业生',
+    latinName: '国内优选 · 双季红树莓',
+    description: '双季红树莓，其果实硬度高，相比其他红树莓品种大很多，单果可达10克以上，风味和甜酸比非常好。植株粗壮，直立性好，抗逆性优秀，产量很高，是非常优秀的红树莓品种。',
     color: '#C41E3A',
     batchNo: 'HX-BY-2608-003',
     plantDate: '2026-03-08',
     features: {
-      fruitWeight: '7-10g（最大12g）',
-      sweetness: '12-14°Brix',
-      harvestSeason: '7月上旬至8月上旬',
-      yield: '每株约2.5-3.5kg',
+      fruitWeight: '10g以上（大果）',
+      sweetness: '甜酸比极佳',
+      harvestSeason: '双季',
+      yield: '产量很高',
       coldHardiness: '-25°C',
-      diseaseResistance: '中'
+      diseaseResistance: '抗逆性优秀 · 直立性好'
     },
     plantTraits: {
-      type: '夏果型红树莓',
-      height: '160-200cm',
+      type: '双季红树莓',
+      height: '植株粗壮 · 直立性好',
       thorn: '少刺',
-      fruitShape: '圆整饱满近球形',
+      fruitShape: '圆整饱满近球形 · 果型大',
       fruitColor: '正红色 · 色泽均匀',
-      firmness: '较硬 · 货架期长',
-      flavor: '纯甜无酸，无涩味，树莓清香浓郁，入口回甘',
+      firmness: '硬度高 · 货架期长',
+      flavor: '甜酸比非常好，树莓清香浓郁，入口回甘',
       region: '东北、华北、西北、西南高海拔、华东冷凉地区'
     },
     nutrition: {
       vitaminC: '28mg/100g',
       anthocyanin: '40-80mg/100g',
       ellagicAcid: '富含',
-      highlights: '红树莓中少有的纯甜型品种，维C与花青素含量突出，含天然水杨酸、SOD、黄酮类，被欧美营养学界称为"红宝石水果"'
+      highlights: '红树莓中少有的大果高产品种，维C与花青素含量突出，含天然水杨酸、SOD、黄酮类，被欧美营养学界称为"红宝石水果"'
     },
     storage: {
       coldStorage: '0-4°C 冷藏可保鲜5-7天',
-      tips: '纯甜品种宜即采即食或及时冷藏，避免高温发酵；果粒完整紧实，冷冻后风味保存好，适合制作树莓速冻果',
+      tips: '果实硬度高货架期长，宜即采即食或及时冷藏；冷冻后风味保存好，适合制作树莓速冻果',
       eating: '高端鲜食、搭配酸奶麦片、制作树莓慕斯、树莓果酱、调制鸡尾酒、烘焙蛋糕装饰'
     },
     careGuide: [
@@ -199,7 +557,7 @@ const varieties = [
       '每2-3天浇一次水，红树莓根系浅忌干旱忌积水',
       '基肥以腐熟牛粪为主每亩2500kg，花期、果实膨大期各追一次磷钾肥',
       '采用T型架，架高1.8m，新梢长至1m时及时引绑上架',
-      '修剪：每株留8-10根健壮基生枝，采果后彻底剪除老枝',
+      '双季品种当年生枝秋末也能结果，修剪时注意保留健壮基生枝',
       '重点预防白粉病和灰霉病，花期遇雨需喷一次保护性杀菌剂'
     ],
     cultivationLog: [
@@ -214,9 +572,154 @@ const varieties = [
       { date: '2026-06-10', type: 'water',     title: '果实膨大期灌溉',   desc: '每2-3天滴灌一次，毕业生需水量较大', operator: '李师傅' },
       { date: '2026-06-20', type: 'fertilize', title: '果实膨大期追肥',   desc: '叶面喷施0.3%磷酸二氢钾+0.2%硼砂，每7天一次共3次', operator: '李师傅' },
       { date: '2026-07-02', type: 'pesticide', title: '防治灰霉病',       desc: '喷施腐霉利800倍液，重点喷施果穗和花器', operator: '张师傅', safePeriod: '14天' },
-      { date: '2026-07-10', type: 'harvest',   title: '开始采收',         desc: '果实95%转色且有光泽时采收，上午露水干后采摘，每1-2天采一次', operator: '王师傅' }
+      { date: '2026-07-10', type: 'harvest',   title: '夏果开始采收',     desc: '果实95%转色且有光泽时采收，单果大、产量高', operator: '王师傅' }
     ]
   },
+  {
+    id: 'hongzuan',
+    name: '红钻',
+    latinName: '国内杂交 · 双季红树莓',
+    description: '双季红树莓，老牌优秀红树莓品种。其枝条直立性好，根蘖旺，成活率高。果实鲜红周正，大小中等，其口味甜度高，酸度低，香味浓郁。是一款很适合新手种植的一个红树莓品种。',
+    color: '#DC143C',
+    batchNo: 'HX-HZ-2609-012',
+    plantDate: '2026-03-15',
+    features: {
+      fruitWeight: '中等 · 鲜红周正',
+      sweetness: '甜度高 · 酸度低',
+      harvestSeason: '双季',
+      yield: '根蘖旺 · 成活率高',
+      coldHardiness: '—',
+      diseaseResistance: '香味浓郁 · 适合新手'
+    },
+    plantTraits: {
+      type: '双季红树莓',
+      height: '枝条直立性好',
+      thorn: '—',
+      fruitShape: '周正中等果',
+      fruitColor: '鲜红色',
+      firmness: '—',
+      flavor: '甜度高、酸度低，香味浓郁',
+      region: '全国大部分地区 · 新手推荐'
+    },
+    careGuide: [
+      '双季红树莓老牌品种，非常适合新手种植',
+      '枝条直立性好，根蘖旺，成活率高，管理粗放',
+      '果实鲜红周正，甜度高、酸度低、香味浓郁',
+      '选择光照充足处种植，定期引枝绑缚',
+      '常规水肥管理即可丰产，注意疏除过密根蘖苗'
+    ],
+    cultivationLog: [
+      { date: '2026-03-15', type: 'soil',      title: '整地定植',       desc: '行距2m株距0.5m，每亩施腐熟牛粪2500kg+过磷酸钙60kg', operator: '王师傅' },
+      { date: '2026-03-20', type: 'water',     title: '定植浇水',       desc: '浇透定根水，行间覆盖黑色抑草布', operator: '李师傅' },
+      { date: '2026-04-05', type: 'inspect',   title: '成活检查',       desc: '成活率98%，枝条直立性好，根蘖开始萌发，长势旺', operator: '王师傅' },
+      { date: '2026-04-18', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素15g，结合浇水冲施', operator: '李师傅' },
+      { date: '2026-05-02', type: 'support',   title: '搭架引枝',       desc: '红钻直立性好，搭简易T型架（架高1.6m）辅助支撑即可', operator: '张师傅' },
+      { date: '2026-05-10', type: 'prune',     title: '疏除根蘖苗',     desc: '根蘖旺，疏除过密根蘖苗，每株选留8-10根健壮枝', operator: '王师傅' },
+      { date: '2026-05-18', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥20g+硫酸钾8g', operator: '李师傅' },
+      { date: '2026-05-28', type: 'pesticide', title: '预防白粉病',     desc: '喷施三唑酮1500倍液，叶面叶背均匀喷施', operator: '张师傅', safePeriod: '21天' },
+      { date: '2026-06-08', type: 'water',     title: '果实膨大期灌溉', desc: '滴灌每2-3天一次，保持土壤湿润', operator: '李师傅' },
+      { date: '2026-06-18', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾+0.2%硼砂，增甜提质', operator: '李师傅' },
+      { date: '2026-06-28', type: 'harvest',   title: '夏果开始采收',   desc: '果实鲜红周正，甜度高、酸度低、香味浓郁，新手友好品种表现稳定', operator: '王师傅' },
+      { date: '2026-09-01', type: 'harvest',   title: '秋果开始采收',   desc: '当年生枝秋果成熟，双季挂果丰产', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'fengqiu',
+    name: '丰秋',
+    latinName: '秋福 · 双季早熟红树莓',
+    description: '双季红树莓，早熟品种。成株高1.2米-1.5米左右，果实中等大小，硬度适中偏软，口感甜酸比7:3。耐寒，耐土壤贫瘠，皮实好养。',
+    color: '#E8453C',
+    batchNo: 'HX-FQ-2609-013',
+    plantDate: '2026-03-16',
+    features: {
+      fruitWeight: '中等大小',
+      sweetness: '甜酸比 7:3',
+      harvestSeason: '双季 · 早熟',
+      yield: '—',
+      coldHardiness: '耐寒',
+      diseaseResistance: '耐土壤贫瘠 · 皮实好养'
+    },
+    plantTraits: {
+      type: '双季红树莓 · 早熟',
+      height: '1.2-1.5m',
+      thorn: '—',
+      fruitShape: '中等果形',
+      fruitColor: '鲜红色',
+      firmness: '适中偏软',
+      flavor: '口感甜酸比7:3，清甜适口',
+      region: '耐寒地区 · 贫瘠土壤可种'
+    },
+    careGuide: [
+      '早熟双季红树莓，皮实好养，新手友好',
+      '成株高1.2-1.5m，选择排水良好的土壤即可种植',
+      '耐寒、耐土壤贫瘠，适应性强',
+      '果实硬度适中偏软，成熟后及时采收',
+      '甜酸比约7:3，鲜食风味佳'
+    ],
+    cultivationLog: [
+      { date: '2026-03-16', type: 'soil',      title: '整地定植',       desc: '行距2m株距0.5m，丰秋耐寒耐贫瘠，每亩施腐熟牛粪2500kg即可', operator: '王师傅' },
+      { date: '2026-03-21', type: 'water',     title: '定植浇水',       desc: '浇透定根水，覆盖黑色地膜提高地温', operator: '李师傅' },
+      { date: '2026-04-04', type: 'inspect',   title: '成活检查',       desc: '成活率97%，早熟品种萌芽早，皮实好养', operator: '王师傅' },
+      { date: '2026-04-16', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素15g+复合肥15g', operator: '李师傅' },
+      { date: '2026-04-28', type: 'support',   title: '搭架引枝',       desc: '搭T型架高1.5m，成株1.2-1.5m，引枝绑缚', operator: '张师傅' },
+      { date: '2026-05-06', type: 'prune',     title: '疏枝定梢',       desc: '每株留8根左右健壮枝，疏除弱枝', operator: '王师傅' },
+      { date: '2026-05-14', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥18g+硫酸钾6g', operator: '李师傅' },
+      { date: '2026-05-24', type: 'pesticide', title: '物理防虫',       desc: '挂黄色粘虫板每亩30块，早熟品种坐果早提前防虫', operator: '张师傅', safePeriod: '0天(物理防治)' },
+      { date: '2026-06-02', type: 'water',     title: '果实发育期灌溉', desc: '早熟品种果实发育快，每2-3天滴灌一次', operator: '李师傅' },
+      { date: '2026-06-10', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，促早熟转色', operator: '李师傅' },
+      { date: '2026-06-20', type: 'harvest',   title: '夏果开始采收',   desc: '早熟品种率先上市，果实中等、甜酸比约7:3；硬度偏软，成熟后及时采收', operator: '王师傅' },
+      { date: '2026-08-28', type: 'harvest',   title: '秋果开始采收',   desc: '当年生枝秋果成熟，秋福品种秋果丰产，分批采收至10月', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'hongmeng',
+    name: '红梦',
+    latinName: '山楂叶悬钩子实生优选 · 单季老枝挂果',
+    description: '单季带刺老枝挂果优选山楂叶悬钩子。其果实透亮，甜度高，风味足。植株抗逆性强，果期果量很大。但红梦属于老枝挂果冬季保留老枝，不能贴地平剪，切记！！！',
+    color: '#D9322F',
+    batchNo: 'HX-HM-2609-014',
+    plantDate: '2026-03-17',
+    features: {
+      fruitWeight: '—',
+      sweetness: '甜度高 · 风味足',
+      harvestSeason: '单季 · 老枝挂果',
+      yield: '果期果量大',
+      coldHardiness: '—',
+      diseaseResistance: '带刺 · 抗逆性强'
+    },
+    plantTraits: {
+      type: '单季山楂叶悬钩子 · 老枝挂果',
+      height: '—',
+      thorn: '带刺',
+      fruitShape: '—',
+      fruitColor: '果实透亮鲜红',
+      firmness: '—',
+      flavor: '甜度高，风味足',
+      region: '冬季必须保留老枝，不可贴地平剪'
+    },
+    careGuide: [
+      '单季带刺山楂叶悬钩子优选，老枝挂果品种',
+      '冬季必须保留老枝，切记不可贴地平剪，否则来年无果',
+      '果实透亮、甜度高、风味足，果期果量大',
+      '植株有刺，修剪采摘时注意防护',
+      '抗逆性强，常规管理即可丰产'
+    ],
+    cultivationLog: [
+      { date: '2026-03-17', type: 'soil',      title: '整地定植',       desc: '行距2m株距0.6m，每亩施腐熟羊粪2500kg作基肥；山楂叶悬钩子实生优选，植株有倒刺，作业戴厚手套', operator: '王师傅' },
+      { date: '2026-03-22', type: 'water',     title: '定植浇水',       desc: '浇透定根水，覆盖黑色地膜，抗逆性强缓苗快', operator: '李师傅' },
+      { date: '2026-04-08', type: 'inspect',   title: '成活检查',       desc: '成活率98%，萌芽早，老枝上花芽已显现', operator: '王师傅' },
+      { date: '2026-04-20', type: 'fertilize', title: '追施提苗肥',     desc: '每株施尿素12g+复合肥15g，薄肥勤施', operator: '李师傅' },
+      { date: '2026-05-05', type: 'support',   title: '搭架引枝',       desc: '搭T型架引绑老枝，老枝为结果枝需重点保护，作业注意防刺', operator: '张师傅' },
+      { date: '2026-05-12', type: 'prune',     title: '疏除病弱枝',     desc: '仅疏除病枝弱枝，保留健壮老枝——红梦为老枝挂果品种，切记不可贴地平剪', operator: '王师傅' },
+      { date: '2026-05-20', type: 'fertilize', title: '花前追肥',       desc: '每株施复合肥20g+硫酸钾8g，促老枝花果发育', operator: '李师傅' },
+      { date: '2026-06-01', type: 'pesticide', title: '预防病害',       desc: '喷施代森锰锌600倍液，枝叶浓密重点喷内膛', operator: '张师傅', safePeriod: '15天' },
+      { date: '2026-06-10', type: 'water',     title: '果期灌溉',       desc: '滴灌每2-3天一次，果量大需保证水分', operator: '李师傅' },
+      { date: '2026-06-18', type: 'fertilize', title: '叶面追肥',       desc: '喷施0.3%磷酸二氢钾，提升果实糖度风味', operator: '李师傅' },
+      { date: '2026-06-25', type: 'harvest',   title: '开始采收',       desc: '果实透亮鲜红，甜度高、风味足，果期果量大；倒刺锋利，采摘时格外小心', operator: '王师傅' },
+      { date: '2026-08-25', type: 'prune',     title: '采后修剪',       desc: '采果后疏除已结果老弱枝，新枝留作来年结果母枝；冬季修剪必须保留健壮老枝，严禁贴地平剪', operator: '王师傅' }
+    ]
+  },
+  // ==================== 黄/特色 ====================
   {
     id: 'golden-autumn',
     name: '黄树莓金秋',
@@ -274,6 +777,54 @@ const varieties = [
       { date: '2026-06-08', type: 'water',     title: '果实膨大期灌溉',   desc: '每2天滴灌一次，金秋果肉饱满需水量大', operator: '李师傅' },
       { date: '2026-06-20', type: 'fertilize', title: '叶面追肥',         desc: '喷施0.3%磷酸二氢钾+0.1%钙肥，增加果皮硬度减少落果', operator: '李师傅' },
       { date: '2026-07-05', type: 'harvest',   title: '开始采收',         desc: '果实由绿黄转至琥珀金黄时采收，每天上午采摘，当天销售为佳', operator: '王师傅' }
+    ]
+  },
+  {
+    id: 'bubblegum',
+    name: '泡泡糖',
+    latinName: '黄色蓬蘽优选 · 单季带刺悬钩子',
+    description: '单季带刺悬钩子，泡泡糖为黄蓬蘽人工优选品系。果实呈金黄色，自带浓郁泡泡糖香甜味道，高甜低酸，糖度大概17-19度。香味独特。果期集中在4-6月份，植株有倒刺，需要格外小心。',
+    color: '#F4A623',
+    batchNo: 'HX-PP-2609-015',
+    plantDate: '2026-03-18',
+    features: {
+      fruitWeight: '—',
+      sweetness: '17-19°Brix',
+      harvestSeason: '单季 · 4-6月',
+      yield: '—',
+      coldHardiness: '—',
+      diseaseResistance: '带倒刺 · 高甜低酸'
+    },
+    plantTraits: {
+      type: '单季黄蓬蘽优选',
+      height: '—',
+      thorn: '有倒刺（需格外小心）',
+      fruitShape: '—',
+      fruitColor: '金黄色',
+      firmness: '—',
+      flavor: '浓郁泡泡糖香甜味道，高甜低酸，香味独特',
+      region: '果期集中在4-6月份'
+    },
+    careGuide: [
+      '单季带刺黄蓬蘽人工优选品系，果期集中在4-6月',
+      '果实金黄色，自带浓郁泡泡糖香甜味，糖度17-19度',
+      '高甜低酸、香味独特，成熟后及时采收品尝',
+      '植株有倒刺，采摘修剪务必格外小心，建议戴厚手套',
+      '野生悬钩子驯化品种，适应性强，常规管理即可'
+    ],
+    cultivationLog: [
+      { date: '2026-03-18', type: 'soil',      title: '整地定植',       desc: '起垄栽培，行距1.8m株距0.6m，每亩施腐熟羊粪2500kg；黄蓬蘽优选品系，植株有倒刺，作业戴厚手套', operator: '王师傅' },
+      { date: '2026-03-23', type: 'water',     title: '定植浇水',       desc: '浇透定根水，覆盖黑色地膜保墒', operator: '李师傅' },
+      { date: '2026-04-02', type: 'inspect',   title: '现蕾检查',       desc: '成活率99%，果期早（4-6月），部分植株已现蕾', operator: '王师傅' },
+      { date: '2026-04-10', type: 'fertilize', title: '花前追肥',       desc: '果期早，花前及时补施磷钾肥，每株复合肥20g+硫酸钾8g', operator: '李师傅' },
+      { date: '2026-04-20', type: 'support',   title: '立杆支撑',       desc: '立杆简易牵引结果枝，避免果枝倒伏贴地', operator: '张师傅' },
+      { date: '2026-04-28', type: 'pesticide', title: '花期物理防虫',   desc: '花期以物理防治为主，挂黄色粘虫板，保护授粉', operator: '张师傅', safePeriod: '0天(物理防治)' },
+      { date: '2026-05-05', type: 'water',     title: '果期灌溉',       desc: '果实发育期保持土壤湿润，每2-3天滴灌一次', operator: '李师傅' },
+      { date: '2026-05-12', type: 'harvest',   title: '首批果采收',     desc: '果实转金黄色即可采收，自带浓郁泡泡糖香甜味，糖度17-19度、高甜低酸，成熟后及时品尝', operator: '王师傅' },
+      { date: '2026-05-25', type: 'inspect',   title: '盛果期巡检',     desc: '盛果期果量大，每日巡查熟果；倒刺锋利，采摘务必小心', operator: '王师傅' },
+      { date: '2026-06-15', type: 'harvest',   title: '末批果采收',     desc: '果期（4-6月）结束，采收末批果实', operator: '王师傅' },
+      { date: '2026-07-05', type: 'prune',     title: '果后修剪',       desc: '果期结束后清理结果老枝，疏除过密枝，保持通风', operator: '王师傅' },
+      { date: '2026-08-10', type: 'soil',      title: '秋季施基肥',     desc: '行间沟施腐熟有机肥，恢复树势，为明年果期储备养分', operator: '李师傅' }
     ]
   }
 ]

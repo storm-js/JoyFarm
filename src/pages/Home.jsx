@@ -30,7 +30,7 @@ export default function Home() {
             </div>
             <div className={styles.statDivider} />
             <div className={styles.stat}>
-              <span className={styles.statNum}>15g</span>
+              <span className={styles.statNum}>25g</span>
               <span className={styles.statLabel}>最大单果</span>
             </div>
             <div className={styles.statDivider} />
@@ -115,6 +115,10 @@ export default function Home() {
             <p className={styles.footerText}>
               生态种植 · 科学养护 · 品质保证
             </p>
+            <div className={styles.footerLinks}>
+              <Link to="/care-guide" className={styles.footerLink}>📖 养护说明</Link>
+              <Link to="/admin" className={styles.footerLink}>🔐 管理入口</Link>
+            </div>
           </div>
         </div>
         <p className={styles.copyright}>© 2026 欢喜农场 · 生态种植 科学养护</p>
